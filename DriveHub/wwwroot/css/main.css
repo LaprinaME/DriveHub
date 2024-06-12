@@ -1,0 +1,91 @@
+﻿body {
+    background-image: url("../img/ryan_gosling_drive.jpg");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px; /* Размер шрифта */
+}
+
+.container {
+    background: linear-gradient(45deg, #ACB78E, #DAD871, #2F4538, #4F7942);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(45deg, #ACB78E, #DAD871, #2F4538, #4F7942);
+    border-radius: 10px;
+    color: #222;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 200px;
+    background: linear-gradient(45deg, #ACB78E, #DAD871, #2F4538, #4F7942);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .sidebar a {
+        margin: 10px 0;
+        padding: 10px 20px;
+        background: rgba(79, 121, 66, 0.8);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+        font-size: 16px; /* Уменьшенный размер шрифта */
+        border: 1px solid #ccc; /* Серая граница */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
+    }
+
+        .sidebar a:hover {
+            background: rgba(47, 69, 56, 0.9);
+        }
+
+.logo-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #ACB78E, #DAD871, #2F4538, #4F7942);
+    width: 300px; /* Фиксированная ширина */
+    height: 150px; /* Фиксированная высота */
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px; /* Размер шрифта */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .logo-container h2 {
+        margin: 0;
+        color: #222;
+    }
+
+    .logo-container p {
+        margin: 0;
+        color: #222;
+        font-style: italic;
+    }

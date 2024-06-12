@@ -1,0 +1,74 @@
+﻿body {
+    background-image: url("../img/background1.jpg");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px; /* Размер шрифта */
+}
+
+.register-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #444; /* темный блок */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* тень */
+    color: #eee; /* светлый текст */
+    text-align: center;
+}
+
+    .register-container h2 {
+        margin-bottom: 20px;
+        color: #ff6f00; /* оранжевый заголовок */
+    }
+
+    .register-container input[type="text"],
+    .register-container input[type="password"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin: 10px 0;
+        background-color: #666; /* серый фон для инпутов */
+        border: none;
+        border-radius: 5px;
+        color: #eee; /* светлый текст */
+    }
+
+    .register-container input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #ff6f00; /* оранжевая кнопка */
+        border: none;
+        border-radius: 5px;
+        color: #fff; /* белый текст */
+        cursor: pointer;
+    }
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.return-button {
+    padding: 10px 20px;
+    background-color: #222;
+    border: 2px solid #ff6f00; /* оранжевая рамка */
+    border-radius: 5px;
+    color: #ff6f00; /* оранжевый текст */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .return-button:hover {
+        background-color: #ff6f00; /* оранжевый фон при наведении */
+        color: #222; /* темный текст при наведении */
+    }

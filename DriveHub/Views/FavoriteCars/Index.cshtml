@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DriveHub.Models.FavoriteCar>
+
+@{
+    ViewData["Title"] = "Favorite Cars";
+}
+
+<h1>Favorite Cars</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Car Make</th>
+            <th>Car Model</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>Mileage</th>
+            <th>Description</th>
+            <th>Date Added</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var favoriteCar in Model)
+        {
+            <tr>
+                <td>@favoriteCar.Car.Make</td>
+                <td>@favoriteCar.Car.Model</td>
+                <td>@favoriteCar.Car.Year</td>
+                <td>@favoriteCar.Car.Price</td>
+                <td>@favoriteCar.Car.Mileage</td>
+                <td>@favoriteCar.Car.Description</td>
+                <td>@favoriteCar.DateAdded</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<DriveHub.Models.Role>
+
+@{
+    ViewData["Title"] = "Roles";
+}
+
+<h1>Roles</h1>
+
+<ul>
+    @foreach (var role in Model)
+    {
+        <li>@role.RoleName</li>
+    }
+</ul>

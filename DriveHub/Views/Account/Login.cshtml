@@ -1,0 +1,36 @@
+﻿@model DriveHub.ViewModels.LoginViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="@Url.Content("../css/login.css")">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Авторизация</h2>
+        <form method="post" asp-action="Login" asp-controller="Account">
+            <div>
+                <label asp-for="Login">Введите логин:</label>
+                <input asp-for="Login" />
+                <span class="validation-message" asp-validation-for="Login"></span>
+            </div>
+            <div>
+                <label asp-for="Password">Введите пароль:</label>
+                <input asp-for="Password" type="password" />
+                <span class="validation-message" asp-validation-for="Password"></span>
+            </div>
+            <div>
+                <input type="submit" value="Войти" />
+            </div>
+        </form>
+    </div>
+
+    <div class="button-container">
+        @* Кнопка "Вернуться на главную страницу" *@
+        <form method="get" action="/Home/Index">
+            <button type="submit" class="return-button">Вернуться на главную страницу</button>
+        </form>
+    </div>
+</body>
+</html>

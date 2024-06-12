@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DriveHub.Models.CarService>
+
+@{
+    ViewData["Title"] = "Car Services";
+}
+
+<h1>Car Services</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Service Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var service in Model)
+        {
+            <tr>
+                <td>@service.ServiceName</td>
+                <td>@service.Description</td>
+                <td>@service.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>

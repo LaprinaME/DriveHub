@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DriveHub.Models.Review>
+
+@{
+    ViewData["Title"] = "Reviews";
+}
+
+<h1>Reviews</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Car Make</th>
+            <th>Car Model</th>
+            <th>Rating</th>
+            <th>Comment</th>
+            <th>Date Posted</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var review in Model)
+        {
+            <tr>
+                <td>@review.User.Username</td>
+                <td>@review.Car.Make</td>
+                <td>@review.Car.Model</td>
+                <td>@review.Rating</td>
+                <td>@review.Comment</td>
+                <td>@review.DatePosted</td>
+            </tr>
+        }
+    </tbody>
+</table>
