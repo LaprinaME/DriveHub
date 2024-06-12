@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DriveHub.ViewModels.DeleteCarServiceViewModel>
+
+<h2>Delete Car Services</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var service in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => service.ServiceID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => service.ServiceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => service.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => service.Price)
+                </td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@service.ServiceID">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

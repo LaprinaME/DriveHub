@@ -1,0 +1,31 @@
+﻿@model DriveHub.ViewModels.AddFavoriteCarsViewModel
+
+@{
+    ViewData["Title"] = "Добавить избранный автомобиль";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="FavoriteID" class="control-label"></label>
+        <input asp-for="FavoriteID" class="form-control" />
+        <span asp-validation-for="FavoriteID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserID" class="control-label"></label>
+        <input asp-for="UserID" class="form-control" />
+        <span asp-validation-for="UserID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CarID" class="control-label"></label>
+        <input asp-for="CarID" class="form-control" />
+        <span asp-validation-for="CarID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateAdded" class="control-label"></label>
+        <input asp-for="DateAdded" class="form-control" />
+        <span asp-validation-for="DateAdded" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить</button>
+</form>

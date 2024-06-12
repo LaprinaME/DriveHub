@@ -2,7 +2,7 @@
 
 namespace DriveHub.ViewModels
 {
-    public class AddUserViewModel
+    public class AddUsersViewModel
     {
         public int UserID { get; set; } // Поле для ввода ID
 

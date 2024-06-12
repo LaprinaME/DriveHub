@@ -1,22 +1,23 @@
-﻿@model IEnumerable<DriveHub.Models.Dealership>
+﻿@model IEnumerable<DriveHub.ViewModels.DeleteDealershipViewModel>
 
-<h2>Dealerships</h2>
+<h2>Delete Dealerships</h2>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                ID
+                @Html.DisplayNameFor(model => model.DealershipID)
             </th>
             <th>
-                Name
+                @Html.DisplayNameFor(model => model.DealershipName)
             </th>
             <th>
-                Address
+                @Html.DisplayNameFor(model => model.Address)
             </th>
             <th>
-                Phone
+                @Html.DisplayNameFor(model => model.Phone)
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -34,6 +35,11 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => dealership.Phone)
+                </td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@dealership.DealershipID">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
                 </td>
             </tr>
         }

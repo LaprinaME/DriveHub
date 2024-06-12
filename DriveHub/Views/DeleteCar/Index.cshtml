@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DriveHub.ViewModels.DeleteCarViewModel>
+
+<h2>Delete Cars</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CarID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mileage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateAdded)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => car.CarID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Make)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Mileage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.DateAdded)
+                </td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@car.CarID">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

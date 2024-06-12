@@ -1,5 +1,35 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<DriveHub.Models.User>
+
+<h2>Список пользователей</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().UserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().RoleID)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => user.UserID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.RoleID)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

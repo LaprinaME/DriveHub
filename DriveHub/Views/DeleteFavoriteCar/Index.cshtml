@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DriveHub.ViewModels.DeleteFavoriteCarViewModel>
+
+<h2>Delete Favorite Cars</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FavoriteID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateAdded)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var favoriteCar in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => favoriteCar.FavoriteID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => favoriteCar.UserID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => favoriteCar.CarID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => favoriteCar.DateAdded)
+                </td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@favoriteCar.FavoriteID">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

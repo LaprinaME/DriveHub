@@ -6,11 +6,11 @@ using DriveHub.DataContext;
 
 namespace DriveHub.Controllers
 {
-    public class AddFavoriteCarsController : Controller
+    public class AddDealershipController : Controller
     {
         private readonly DriveHubContext _context;
 
-        public AddFavoriteCarsController(DriveHubContext context)
+        public AddDealershipController(DriveHubContext context)
         {
             _context = context;
         }
@@ -23,19 +23,19 @@ namespace DriveHub.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add(AddFavoriteCarsViewModel model)
+        public async Task<IActionResult> Add(AddDealershipViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var favoriteCar = new FavoriteCar
+                var dealership = new Dealership
                 {
-                    FavoriteID = model.FavoriteID,
-                    UserID = model.UserID,
-                    CarID = model.CarID,
-                    DateAdded = model.DateAdded
+                    DealershipID = model.DealershipID,
+                    DealershipName = model.DealershipName,
+                    Address = model.Address,
+                    Phone = model.Phone
                 };
 
-                _context.FavoriteCars.Add(favoriteCar);
+                _context.Dealerships.Add(dealership);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
