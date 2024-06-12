@@ -3,12 +3,110 @@
 @{
     ViewData["Title"] = "Roles";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background: #222;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
 
-<h1>Roles</h1>
+        .return-button {
+            display: inline-block;
+            padding: 12px 20px; /* Увеличенные отступы */
+            background-color: #FF0033; /* Красный фон */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease; /* Плавный переход */
+        }
 
-<ul>
-    @foreach (var role in Model)
-    {
-        <li>@role.RoleName</li>
-    }
-</ul>
+            .return-button:hover {
+                background-color: #dc3545; /* Темнее красный при наведении */
+            }
+
+            .return-button:focus {
+                box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); /* Тень при фокусе */
+            }
+        h1 {
+            text-align: center;
+            color: #FF0033; /* Красный */
+            margin-top: 20px;
+            text-shadow: 2px 2px #393c42; /* Темный серый */
+        }
+
+        .table-container {
+            background: linear-gradient(135deg, #393c42, #FF0033); /* Серо-красный градиент */
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            color: #222; /* Темный шрифт */
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .table thead {
+                background-color: #393c42; /* Темный серый */
+                color: #FFFFFF;
+            }
+
+                .table thead th {
+                    padding: 10px;
+                }
+
+            .table tbody tr {
+                background-color: #FFFFFF;
+                color: #222;
+            }
+
+                .table tbody tr:nth-child(even) {
+                    background-color: #FF0033; /* Красный */
+                    color: #FFFFFF;
+                }
+
+            .table tbody td {
+                padding: 10px;
+                text-align: center;
+            }
+
+            .table tbody tr:hover {
+                background-color: #FF0033; /* Красный */
+                color: #FFFFFF;
+            }
+    </style>
+</head>
+<body>
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Role Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var role in Model)
+                {
+                    <tr>
+                        <td>@role.RoleName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

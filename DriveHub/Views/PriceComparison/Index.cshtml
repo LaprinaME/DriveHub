@@ -4,31 +4,409 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Reviews and Comparison</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #111; /* Темный серый фон */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            color: #111; /* Светлый текст */
+        }
+
+        h1 {
+            text-align: center;
+            color: #FF0033; /* Красный */
+            margin-top: 20px;
+            text-shadow: 1px 1px #222; /* Темный серый */
+        }
+
+        .car {
+            background-color: #444; /* Белый фон */
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень */
+        }
+
+            .car img {
+                max-width: 100%;
+                width: 800px; /* Уменьшенный размер картинок */
+                border-radius: 8px;
+                margin-bottom: 1rem;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        .review {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background-color: #f2f2f2; /* Светло-серый фон для отзывов */
+            border: 1px solid #FF0033;
+            border-radius: 4px;
+            color: #111; /* Темный текст */
+            position: relative; /* Для позиционирования кнопок */
+        }
+
+        .review-input {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #666; /* Темный серый для границ */
+            font-size: 1rem;
+            width: calc(100% - 110px); /* Adjust width as needed */
+            color: #111; /* Темный текст */
+            background-color: #f0f0f0; /* Светло-серый фон */
+        }
+
+        .review-button, .edit-button, .delete-button, .save-button, .cancel-button {
+            padding: 12px 20px; /* Увеличенные отступы */
+            border: none;
+            background-color: #FF0033; /* Красный фон */
+            color: #fff;
+            font-size: 18px; /* Увеличенный размер шрифта */
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease; /* Плавный переход */
+        }
+
+            .review-button:hover, .edit-button:hover, .delete-button:hover, .save-button:hover, .cancel-button:hover {
+                background-color: #dc3545; /* Темнее красный при наведении */
+            }
+
+            .review-button:focus, .edit-button:focus, .delete-button:focus, .save-button:focus, .cancel-button:focus {
+                box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); /* Тень при фокусе */
+            }
+
+        .button-container {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .return-button {
+            display: inline-block;
+            padding: 12px 20px; /* Увеличенные отступы */
+            background-color: #FF0033; /* Красный фон */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease; /* Плавный переход */
+        }
+
+            .return-button:hover {
+                background-color: #dc3545; /* Темнее красный при наведении */
+            }
+
+            .return-button:focus {
+                box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); /* Тень при фокусе */
+            }
+
+        .edit-button, .delete-button {
+            position: absolute; /* Абсолютное позиционирование */
+            top: 50%; /* Вертикальное центрирование */
+            transform: translateY(-50%); /* Вертикальное центрирование */
+        }
+
+        .edit-button {
+            right: 60px; /* Справа от отзыва */
+        }
+
+        .delete-button {
+            right: 10px; /* Еще правее */
+        }
+
+        p {
+            text-align: center;
+            color: #111; /* Красный */
+        }
+
+        h2 {
+            text-align: center;
+            color: #FF0033; /* Красный */
+            margin-top: 20px;
+            text-shadow: 1px 1px #222; /* Темный серый */
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Car Reviews and Comparison</h1>
-        <a href="#" id="home-link">Home</a>
     </header>
 
     <main>
         <section id="car-list">
-            <!-- Car articles will be dynamically added here -->
+            <!-- Car articles will be added here -->
+            <div class="car" id="car-toyota-camry">
+                <h2>Toyota Camry</h2>
+                <p><strong>Manufacturer:</strong> Toyota Motor Corporation, Japan</p>
+                <p><strong>Power:</strong> Available engines from 2.5L (206 hp) to 3.5L (301 hp)</p>
+                <p><strong>Price:</strong> Approximately $25,000 to $35,000 USD</p>
+                <p><strong>Features:</strong> Comfortable sedan with high reliability and modern safety systems. Known for its fuel efficiency and spacious interior.</p>
+                <img src="../img/toyota_camry.jpg" alt="Toyota Camry">
+                <div id="reviews-toyota-camry">
+                    <!-- Reviews for Toyota Camry will be added here -->
+                </div>
+                <input type="text" id="review-input-toyota-camry" class="review-input" placeholder="Leave your review">
+                <button class="review-button" onclick="addReview('toyota-camry')">Add Review</button>
+                <button class="edit-button" onclick="editReview('toyota-camry')">Edit</button>
+                <button class="delete-button" onclick="deleteReview('toyota-camry')">Delete</button>
+            </div>
+
+            <div class="car" id="car-porsche-911">
+                <h2>Porsche 911</h2>
+                <p><strong>Manufacturer:</strong> Porsche AG, Germany</p>
+                <p><strong>Power:</strong> From 379 hp in base model to 690 hp in Turbo S model</p>
+                <p><strong>Price:</strong> Approximately $100,000 to $200,000 USD</p>
+                <p><strong>Features:</strong> Legendary sports car with rear-engine layout, exquisite design, and high dynamic performance. Offers advanced technology and customization options.</p>
+                <img src="../img/porsche_911.jpg" alt="Porsche 911">
+                <div id="reviews-porsche-911">
+                    <!-- Reviews for Porsche 911 will be added here -->
+                </div>
+                <input type="text" id="review-input-porsche-911" class="review-input" placeholder="Leave your review">
+                <button class="review-button" onclick="addReview('porsche-911')">Add Review</button>
+                <button class="edit-button" onclick="editReview('porsche-911')">Edit</button>
+                <button class="delete-button" onclick="deleteReview('porsche-911')">Delete</button>
+            </div>
+            <div class="car" id="car-honda-civic">
+                <h2>Honda Civic</h2>
+                <p><strong>Manufacturer:</strong> Honda Motor Co., Ltd., Japan</p>
+                <p><strong>Power:</strong> 2.0L (158 hp) and 1.5L turbocharged (174 hp)</p>
+                <p><strong>Price:</strong> Approximately $20,000 to $28,000 USD</p>
+                <p><strong>Features:</strong> Compact car known for its reliability, fuel efficiency, and sporty handling. Offers a modern design and advanced safety features.</p>
+                <img src="../img/honda_civic.jpg" alt="Honda Civic">
+                <div id="reviews-honda-civic">
+                    <!-- Reviews for Honda Civic will be added here -->
+                </div>
+                <input type="text" id="review-input-honda-civic" class="review-input" placeholder="Leave your review">
+                <button class="review-button" onclick="addReview('honda-civic')">Add Review</button>
+                <button class="edit-button" onclick="editReview('honda-civic')">Edit</button>
+                <button class="delete-button" onclick="deleteReview('honda-civic')">Delete</button>
+            </div>
+
+            <div class="car" id="car-ford-mustang">
+                <h2>Ford Mustang</h2>
+                <p><strong>Manufacturer:</strong> Ford Motor Company, USA</p>
+                <p><strong>Power:</strong> 2.3L EcoBoost (310 hp) and 5.0L V8 (450 hp)</p>
+                <p><strong>Price:</strong> Approximately $27,000 to $50,000 USD</p>
+                <p><strong>Features:</strong> Iconic muscle car with powerful engine options, aggressive design, and a rich history. Known for its performance and customization options.</p>
+                <img src="../img/ford_mustang.jpg" alt="Ford Mustang">
+                <div id="reviews-ford-mustang">
+                    <!-- Reviews for Ford Mustang will be added here -->
+                </div>
+                <input type="text" id="review-input-ford-mustang" class="review-input" placeholder="Leave your review">
+                <button class="review-button" onclick="addReview('ford-mustang')">Add Review</button>
+                <button class="edit-button" onclick="editReview('ford-mustang')">Edit</button>
+                <button class="delete-button" onclick="deleteReview('ford-mustang')">Delete</button>
+            </div>
+
+            <div class="car" id="car-bmw-3-series">
+                <h2>BMW 3 Series</h2>
+                <p><strong>Manufacturer:</strong> BMW AG, Germany</p>
+                <p><strong>Power:</strong> From 255 hp to 382 hp depending on model</p>
+                <p><strong>Price:</strong> Approximately $40,000 to $60,000 USD</p>
+                <p><strong>Features:</strong> Luxury compact sedan with excellent driving dynamics, high-quality interior, and advanced technology. Offers a balance of performance and comfort.</p>
+                <img src="../img/bmw_3_series.jpg" alt="BMW 3 Series">
+                <div id="reviews-bmw-3-series">
+                    <!-- Reviews for BMW 3 Series will be added here -->
+                </div>
+                <input type="text" id="review-input-bmw-3-series" class="review-input" placeholder="Leave your review">
+                <button class="review-button" onclick="addReview('bmw-3-series')">Add Review</button>
+                <button class="edit-button" onclick="editReview('bmw-3-series')">Edit</button>
+                <button class="delete-button" onclick="deleteReview('bmw-3-series')">Delete</button>
+            </div>
+
+            <div class="car" id="car-audi-a4">
+                <h2>Audi A4</h2>
+                <p><strong>Manufacturer:</strong> Audi AG, Germany</p>
+                <p><strong>Power:</strong> 2.0L turbocharged engine (201 hp and 261 hp options)</p>
+                <p><strong>Price:</strong> Approximately $39,000 to $50,000 USD</p>
+                <p><strong>Features:</strong> Luxury compact sedan with refined styling, advanced technology, and a comfortable interior. Known for its Quattro all-wheel-drive system.</p>
+                <img src="../img/audi_a4.jpg" alt="Audi A4">
+                <div id="reviews-audi-a4">
+                    <!-- Reviews for Audi A4 will be added here -->
+                </div>
+                <input type="text" id="review-input-audi-a4" class="review-input" placeholder="Leave your review">
+                <button class="review-button" onclick="addReview('audi-a4')">Add Review</button>
+                <button class="edit-button" onclick="editReview('audi-a4')">Edit</button>
+                <button class="delete-button" onclick="deleteReview('audi-a4')">Delete</button>
+            </div>
+            <div class="car" id="car-mercedes-benz-c-class">
+                <h2>Mercedes-Benz C-Class</h2>
+                <p><strong>Manufacturer:</strong> Daimler AG, Germany</p>
+                <p><strong>Power:</strong> 2.0L turbocharged engine (255 hp)</p>
+                <p><strong>Price:</strong> Approximately $41,000 to $60,000 USD</p>
+                <p><strong>Features:</strong> Luxury sedan with elegant design, high-quality materials, and advanced safety features. Known for its smooth ride and innovative technology.</p>
+                <img src="../img/mercedes_c_class.jpg" alt="Mercedes-Benz C-Class">
+                <div id="reviews-mercedes-benz-c-class">
+                    <!-- Reviews for Mercedes-Benz C-Class will be added here -->
+                </div>
+                <input type="text" id="review-input-mercedes-benz-c-class" class="review-input" placeholder="Leave your review">
+                <button class="review-button" onclick="addReview('mercedes-benz-c-class')">Add Review</button>
+                <button class="edit-button" onclick="editReview('mercedes-benz-c-class')">Edit</button>
+                <button class="delete-button" onclick="deleteReview('mercedes-benz-c-class')">Delete</button>
+            </div>
+            <!-- Repeat similar structure for other cars -->
         </section>
 
-        <section id="review-form">
-            <h2>Add a Review</h2>
-            <form id="add-review-form">
-                <label for="reviewer-name">Your Name:</label>
-                <input type="text" id="reviewer-name" required><br>
-                <label for="review-text">Review:</label><br>
-                <textarea id="review-text" rows="4" required></textarea><br>
-                <button type="submit">Submit Review</button>
-            </form>
-        </section>
+        <div class="button-container">
+            <a href="/Home/Index" class="return-button">Home</a>
+        </div>
     </main>
+    <script>
+        // Function to add a review for a specific car
+        function addReview(carId) {
+            var input = document.getElementById('review-input-' + carId);
+            var reviewText = input.value.trim();
+            if (reviewText === '') return;
 
-    <script src="script.js"></script>
+            var reviewSection = document.getElementById('reviews-' + carId);
+            var reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review';
+            reviewDiv.textContent = reviewText;
+
+            // Add edit and delete buttons
+            var editButton = document.createElement('button');
+            editButton.className = 'edit-button';
+            editButton.textContent = 'Edit';
+            editButton.onclick = function () { editReview(carId, reviewDiv, reviewText); };
+
+            var deleteButton = document.createElement('button');
+            deleteButton.className = 'delete-button';
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = function () { deleteReview(carId, reviewDiv, reviewText); };
+
+            reviewDiv.appendChild(editButton);
+            reviewDiv.appendChild(deleteButton);
+
+            reviewSection.appendChild(reviewDiv);
+            input.value = '';
+
+            // Save review in local storage
+            var reviews = JSON.parse(localStorage.getItem('carReviews')) || {};
+            if (!reviews[carId]) {
+                reviews[carId] = [];
+            }
+            reviews[carId].push(reviewText);
+            localStorage.setItem('carReviews', JSON.stringify(reviews));
+        }
+
+        // Function to load reviews from local storage
+        function loadReviews() {
+            var reviews = JSON.parse(localStorage.getItem('carReviews')) || {};
+            for (var carId in reviews) {
+                var reviewSection = document.getElementById('reviews-' + carId);
+                reviews[carId].forEach(function (reviewText) {
+                    var reviewDiv = document.createElement('div');
+                    reviewDiv.className = 'review';
+                    reviewDiv.textContent = reviewText;
+
+                    // Add edit and delete buttons
+                    var editButton = document.createElement('button');
+                    editButton.className = 'edit-button';
+                    editButton.textContent = 'Edit';
+                    editButton.onclick = function () { editReview(carId, reviewDiv, reviewText); };
+
+                    var deleteButton = document.createElement('button');
+                    deleteButton.className = 'delete-button';
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.onclick = function () { deleteReview(carId, reviewDiv, reviewText); };
+
+                    reviewDiv.appendChild(editButton);
+                    reviewDiv.appendChild(deleteButton);
+
+                    reviewSection.appendChild(reviewDiv);
+                });
+            }
+        }
+
+        // Function to edit a review
+        function editReview(carId, reviewDiv, oldReviewText) {
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'review-input';
+            input.value = oldReviewText;
+
+            var saveButton = document.createElement('button');
+            saveButton.className = 'save-button';
+            saveButton.textContent = 'Save';
+            saveButton.onclick = function () { saveReview(carId, reviewDiv, oldReviewText, input.value); };
+
+            var cancelButton = document.createElement('button');
+            cancelButton.className = 'cancel-button';
+            cancelButton.textContent = 'Cancel';
+            cancelButton.onclick = function () { cancelEdit(reviewDiv, oldReviewText); };
+
+            reviewDiv.innerHTML = '';
+            reviewDiv.appendChild(input);
+            reviewDiv.appendChild(saveButton);
+            reviewDiv.appendChild(cancelButton);
+        }
+
+        // Function to save an edited review
+        function saveReview(carId, reviewDiv, oldReviewText, newReviewText) {
+            reviewDiv.textContent = newReviewText;
+
+            var editButton = document.createElement('button');
+            editButton.className = 'edit-button';
+            editButton.textContent = 'Edit';
+            editButton.onclick = function () { editReview(carId, reviewDiv, newReviewText); };
+
+            var deleteButton = document.createElement('button');
+            deleteButton.className = 'delete-button';
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = function () { deleteReview(carId, reviewDiv, newReviewText); };
+
+            reviewDiv.appendChild(editButton);
+            reviewDiv.appendChild(deleteButton);
+
+            // Update review in local storage
+            var reviews = JSON.parse(localStorage.getItem('carReviews')) || {};
+            if (reviews[carId]) {
+                var index = reviews[carId].indexOf(oldReviewText);
+                if (index !== -1) {
+                    reviews[carId][index] = newReviewText;
+                    localStorage.setItem('carReviews', JSON.stringify(reviews));
+                }
+            }
+        }
+
+        // Function to cancel edit
+        function cancelEdit(reviewDiv, reviewText) {
+            reviewDiv.textContent = reviewText;
+
+            var editButton = document.createElement('button');
+            editButton.className = 'edit-button';
+            editButton.textContent = 'Edit';
+            editButton.onclick = function () { editReview(carId, reviewDiv, reviewText); };
+
+            var deleteButton = document.createElement('button');
+            deleteButton.className = 'delete-button';
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = function () { deleteReview(carId, reviewDiv, reviewText); };
+
+            reviewDiv.appendChild(editButton);
+            reviewDiv.appendChild(deleteButton);
+        }
+
+        // Function to delete a review
+        function deleteReview(carId, reviewDiv, reviewText) {
+            reviewDiv.remove();
+
+            // Remove review from local storage
+            var reviews = JSON.parse(localStorage.getItem('carReviews')) || {};
+            if (reviews[carId]) {
+                var index = reviews[carId].indexOf(reviewText);
+                if (index !== -1) {
+                    reviews[carId].splice(index, 1);
+                    localStorage.setItem('carReviews', JSON.stringify(reviews));
+                }
+            }
+        }
+
+        // Load reviews when the page is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            loadReviews();
+        });
+    </script>
+
 </body>
 </html>

@@ -1,5 +1,76 @@
 ﻿@model IEnumerable<DriveHub.ViewModels.DeleteFavoriteCarViewModel>
+<style>
+    body {
+        background-color: #333; /* Светло-серый фон */
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
 
+    h2 {
+        text-align: center;
+        color: #FF0033; /* Красный */
+        margin-top: 20px;
+        text-shadow: 1px 1px #393c42; /* Темный серый */
+    }
+
+    .table {
+        width: 100%;
+        background-color: #FFFFFF; /* Белый фон таблицы */
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень */
+        margin-top: 20px;
+    }
+
+        .table th, .table td {
+            padding: 12px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table thead {
+            background-color: #393c42; /* Темный серый */
+            color: #FFFFFF;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f2f2f2; /* Светло-серый фон четных строк */
+        }
+
+    .btn-danger {
+        background-color: #FF0033; /* Красный */
+        border-color: #FF0033; /* Красная рамка */
+        padding: 12px 20px; /* Увеличение отступов в кнопке */
+        font-size: 18px; /* Увеличение размера шрифта кнопки */
+    }
+
+        .btn-danger:hover {
+            background-color: #dc3545; /* Красный (темнее) при наведении */
+            border-color: #dc3545;
+        }
+
+        .btn-danger:focus, .btn-danger.focus {
+            box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); /* Тень при фокусе */
+        }
+
+    .return-button {
+        display: inline-block;
+        padding: 12px 20px; /* Увеличенные отступы */
+        background-color: #FF0033; /* Красный фон */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease; /* Плавный переход */
+    }
+
+        .return-button:hover {
+            background-color: #dc3545; /* Темнее красный при наведении */
+        }
+
+        .return-button:focus {
+            box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); /* Тень при фокусе */
+        }
+</style>
 <h2>Delete Favorite Cars</h2>
 
 <table class="table">
@@ -45,3 +116,6 @@
         }
     </tbody>
 </table>
+<form method="get" action="/Home/Index">
+    <button type="submit" class="return-button">На главную</button>
+</form>

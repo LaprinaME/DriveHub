@@ -1,26 +1,121 @@
 ﻿@model DriveHub.ViewModels.AddCarBrandViewModel
-
 @{
     ViewData["Title"] = "Добавить бренд автомобиля";
 }
 
-<h2>@ViewData["Title"]</h2>
+<style>
+    body {
+        background: url('../img/background-image.jpg');
+        background-size: cover;
+        color: #474A51;
+        font-family: Arial, sans-serif;
+    }
 
-<form asp-action="Add" method="post">
-    <div class="form-group">
-        <label asp-for="BrandID" class="control-label"></label>
-        <input asp-for="BrandID" class="form-control" />
-        <span asp-validation-for="BrandID" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="BrandName" class="control-label"></label>
-        <input asp-for="BrandName" class="form-control" />
-        <span asp-validation-for="BrandName" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Country" class="control-label"></label>
-        <input asp-for="Country" class="form-control" />
-        <span asp-validation-for="Country" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Добавить</button>
-</form>
+    h2 {
+        color: #474A51;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: linear-gradient(180deg,
+            #F3A505, #F4A900, #ED760E,#CC5500, #FFA000,
+            #FF7F50, #CD5700, #E55137, #FFA420,
+            #FF8800, #FF4F00, #F36223, #EC7C26, 
+            #FF7538, #FF7514, #FF9218,
+            #F75E25);
+        color: #474A51;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        color: #FFFFFF;
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        background-color: #474A51;
+        color: #FF8243;
+        border: 2px solid #FF7F50;
+        border-radius: 5px;
+    }
+
+    .form-control:focus {
+        border-color: #FF8243;
+        box-shadow: 0 0 10px #FF8243;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 10px;
+        background-color: #FF7F50;
+        border-color: #FF8243;
+        color: #FFFFFF;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .btn-primary:hover {
+        background-color: #FF8243;
+        border-color: #FF7538;
+    }
+
+    .text-danger {
+        color: #FF7538;
+    }
+
+    .return-button {
+        display: inline-block;
+        padding: 12px 20px; /* Увеличенные отступы */
+        background-color: #FF0033; /* Красный фон */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease; /* Плавный переход */
+    }
+
+        .return-button:hover {
+            background-color: #dc3545; /* Темнее красный при наведении */
+        }
+
+        .return-button:focus {
+            box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); /* Тень при фокусе */
+        }
+</style>
+
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+
+    <form asp-action="Add" method="post">
+        <div class="form-group">
+            <label asp-for="BrandID" class="control-label"></label>
+            <input asp-for="BrandID" class="form-control" />
+            <span asp-validation-for="BrandID" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="BrandName" class="control-label"></label>
+            <input asp-for="BrandName" class="form-control" />
+            <span asp-validation-for="BrandName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Country" class="control-label"></label>
+            <input asp-for="Country" class="form-control" />
+            <span asp-validation-for="Country" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+    <form method="get" action="/Home/Index">
+        <button type="submit" class="return-button">На главную</button>
+    </form>
+</div>

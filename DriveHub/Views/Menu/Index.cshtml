@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Menu";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Административное меню</title>
+    <link rel="stylesheet" href="@Url.Content("../css/admin.css")">
+</head>
+<body>
+    <div class="container">
+        <h2>Добро пожаловать, пользователь!</h2>
+        <p>"DromHub: Лучшие авто по лучшим ценам. Он не умер в конце 'Драйва', и мы тоже не сдаемся."</p>
+        <form method="post" action="/Menu">
+            <label for="page">Выберите страницу:</label>
+            <select name="page" id="page">
+                <option value="Home/Index">Главная страница</option>
+                <option value="Cars/Index">Список автомобилей</option>
+                <option value="Roles/Index">Список ролей</option>
+                <option value="Users/Index">Список пользователей</option>
+                <option value="FavoriteCars/Index">Список избранных автомобилей</option>
+                <option value="Reviews/Index">Список отзывов</option>
+                <option value="CarServices/Index">Список услуг обслуживания автомобилей</option>
+                <option value="Dealerships/Index">Список автосалонов</option>
+                <option value="CarBrands/Index">Список брендов автомобилей</option>
+                <option value="PriceComparison/Index">Публикации</option>
+            </select>
+            <button type="submit">Перейти</button>
+        </form>
+        <form method="get" action="/Home/Index">
+            <button type="submit" class="return-button">На главную</button>
+        </form>
+    </div>
+</body>
+</html>
