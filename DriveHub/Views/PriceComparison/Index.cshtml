@@ -1,5 +1,34 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Reviews and Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Car Reviews and Comparison</h1>
+        <a href="#" id="home-link">Home</a>
+    </header>
+
+    <main>
+        <section id="car-list">
+            <!-- Car articles will be dynamically added here -->
+        </section>
+
+        <section id="review-form">
+            <h2>Add a Review</h2>
+            <form id="add-review-form">
+                <label for="reviewer-name">Your Name:</label>
+                <input type="text" id="reviewer-name" required><br>
+                <label for="review-text">Review:</label><br>
+                <textarea id="review-text" rows="4" required></textarea><br>
+                <button type="submit">Submit Review</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
