@@ -15,6 +15,7 @@ namespace DriveHub.DataContext
         public DbSet<CarService> CarServices { get; set; }
         public DbSet<Dealership> Dealerships { get; set; }
         public DbSet<CarBrand> CarBrands { get; set; }
+        public DbSet<CarCompany> CarCompanies { get; set; }
 
         public DriveHubContext(DbContextOptions<DriveHubContext> options) : base(options)
         {

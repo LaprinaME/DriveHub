@@ -1,0 +1,83 @@
+﻿@model DriveHub.Models.CarService
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    .details-container {
+        background-color: #222;
+        color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+        .details-container h4 {
+            color: #FF0033;
+        }
+
+        .details-container dl dt {
+            color: #FF0033;
+        }
+
+    .actions {
+        margin-top: 20px;
+    }
+    h1 {
+        color: #fff;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        margin-right: 10px;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+    .btn-edit {
+        background-color: #FF0033;
+    }
+
+    .btn-back {
+        background-color: #444;
+    }
+
+    .btn-home {
+        background-color: #FF0033;
+    }
+
+    .btn:hover {
+        opacity: 0.8;
+    }
+</style>
+<h1>Details</h1>
+
+<div class="details-container">
+    <h4>Car Service Details</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ServiceName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ServiceName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+    </dl>
+</div>
+<div class="actions">
+    <a class="btn btn-edit" asp-action="Edit" asp-route-id="@Model?.ServiceID">Edit</a>
+    <a class="btn btn-back" asp-action="Index">Back to List</a>
+    <a class="btn btn-home" asp-controller="Home" asp-action="Index">Back to Home</a>
+</div>

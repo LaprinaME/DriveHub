@@ -1,0 +1,134 @@
+﻿@model IEnumerable<DriveHub.Models.CarService>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    body {
+        background: url('../img/f.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #222;
+    }
+
+    h1 {
+        text-align: center;
+        color: #FF0033; /* Красный */
+        margin-top: 20px;
+        text-shadow: 2px 2px #393c42; /* Темный серый */
+    }
+
+    .table-container {
+        background: linear-gradient(135deg, #393c42, #FF0033); /* Серо-красный градиент */
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        color: #222; /* Темный шрифт */
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+        .table thead {
+            background-color: #393c42; /* Темный серый */
+            color: #FFFFFF;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .table tbody tr {
+            background-color: #FFFFFF;
+            color: #222;
+        }
+
+            .table tbody tr:nth-child(even) {
+                background-color: #FF0033; /* Красный */
+                color: #FFFFFF;
+            }
+
+            .table tbody tr:hover {
+                background-color: #FF0033; /* Красный */
+                color: #FFFFFF;
+            }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        margin: 5px 0;
+        background-color: #FF0033; /* Красный */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease; /* Плавный переход */
+    }
+
+        .btn:hover {
+            background-color: #dc3545; /* Темнее красный при наведении */
+        }
+
+        .btn:focus {
+            box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); /* Тень при фокусе */
+        }
+
+    .create-button {
+        margin-bottom: 20px;
+    }
+</style>
+
+<h1>Car Services</h1>
+
+<div class="table-container">
+    <div class="create-button">
+        <a class="btn" asp-action="Create">Create New</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ServiceName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ServiceName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <a class="btn" asp-action="Edit" asp-route-id="@item.ServiceID">Edit</a>
+                        <a class="btn" asp-action="Details" asp-route-id="@item.ServiceID">Details</a>
+                        <a class="btn" asp-action="Delete" asp-route-id="@item.ServiceID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="return-button">
+        <a class="btn" asp-controller="Home" asp-action="Index">Back to Home</a>
+    </div>
+</div>
