@@ -6,30 +6,30 @@
     <title>Car Reviews and Comparison</title>
     <style>
         body {
-            background-color: #111; /* Темный серый фон */
+            background: linear-gradient(135deg, #111 0%, #333 100%);
             font-family: Arial, sans-serif;
             padding: 20px;
-            color: #111; /* Светлый текст */
+            color: #f2f2f2;
         }
 
         h1 {
             text-align: center;
-            color: #FF0033; /* Красный */
+            color: #FF0033;
             margin-top: 20px;
-            text-shadow: 1px 1px #222; /* Темный серый */
+            text-shadow: 2px 2px #222;
         }
 
         .car {
-            background-color: #444; /* Белый фон */
+            background: linear-gradient(135deg, #333 10%, #FF0033 100%);
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
             .car img {
                 max-width: 100%;
-                width: 800px; /* Уменьшенный размер картинок */
+                width: 800px;
                 border-radius: 8px;
                 margin-bottom: 1rem;
                 display: block;
@@ -40,41 +40,41 @@
         .review {
             margin-bottom: 0.5rem;
             padding: 0.5rem;
-            background-color: #f2f2f2; /* Светло-серый фон для отзывов */
+            background: linear-gradient(135deg, #f2f2f2 0%, #cccccc 100%);
             border: 1px solid #FF0033;
             border-radius: 4px;
-            color: #111; /* Темный текст */
-            position: relative; /* Для позиционирования кнопок */
+            color: #111;
+            position: relative;
         }
 
         .review-input {
             margin-bottom: 0.5rem;
             padding: 0.5rem;
             border-radius: 4px;
-            border: 1px solid #666; /* Темный серый для границ */
+            border: 1px solid #666;
             font-size: 1rem;
-            width: calc(100% - 110px); /* Adjust width as needed */
-            color: #111; /* Темный текст */
-            background-color: #f0f0f0; /* Светло-серый фон */
+            width: calc(100% - 110px);
+            color: #111;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
         }
 
         .review-button, .edit-button, .delete-button, .save-button, .cancel-button {
-            padding: 12px 20px; /* Увеличенные отступы */
+            padding: 12px 20px;
             border: none;
-            background-color: #FF0033; /* Красный фон */
+            background: linear-gradient(135deg, #FF0033 50%, #333 100%);
             color: #fff;
-            font-size: 18px; /* Увеличенный размер шрифта */
+            font-size: 18px;
             cursor: pointer;
             border-radius: 4px;
-            transition: background-color 0.3s ease; /* Плавный переход */
+            transition: background 0.3s ease;
         }
 
             .review-button:hover, .edit-button:hover, .delete-button:hover, .save-button:hover, .cancel-button:hover {
-                background-color: #dc3545; /* Темнее красный при наведении */
+                background: linear-gradient(135deg, #dc3545 20%, #a00000 100%);
             }
 
             .review-button:focus, .edit-button:focus, .delete-button:focus, .save-button:focus, .cancel-button:focus {
-                box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); /* Тень при фокусе */
+                box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
             }
 
         .button-container {
@@ -84,46 +84,32 @@
 
         .return-button {
             display: inline-block;
-            padding: 12px 20px; /* Увеличенные отступы */
-            background-color: #FF0033; /* Красный фон */
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #FF0033 20%, #cc0000 100%);
             color: #fff;
             text-decoration: none;
             border-radius: 4px;
-            transition: background-color 0.3s ease; /* Плавный переход */
+            transition: background 0.3s ease;
         }
 
             .return-button:hover {
-                background-color: #dc3545; /* Темнее красный при наведении */
+                background: linear-gradient(135deg, #dc3545 20%, #a00000 100%);
             }
 
             .return-button:focus {
-                box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5); /* Тень при фокусе */
+                box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
             }
-
-        .edit-button, .delete-button {
-            position: absolute; /* Абсолютное позиционирование */
-            top: 50%; /* Вертикальное центрирование */
-            transform: translateY(-50%); /* Вертикальное центрирование */
-        }
-
-        .edit-button {
-            right: 60px; /* Справа от отзыва */
-        }
-
-        .delete-button {
-            right: 10px; /* Еще правее */
-        }
 
         p {
             text-align: center;
-            color: #111; /* Красный */
+            color: #f2f2f2;
         }
 
         h2 {
             text-align: center;
-            color: #FF0033; /* Красный */
+            color: #FF0033;
             margin-top: 20px;
-            text-shadow: 1px 1px #222; /* Темный серый */
+            text-shadow: 1px 1px #222;
         }
     </style>
 </head>
@@ -131,10 +117,8 @@
     <header>
         <h1>Car Reviews and Comparison</h1>
     </header>
-
     <main>
         <section id="car-list">
-            <!-- Car articles will be added here -->
             <div class="car" id="car-toyota-camry">
                 <h2>Toyota Camry</h2>
                 <p><strong>Manufacturer:</strong> Toyota Motor Corporation, Japan</p>
@@ -147,10 +131,7 @@
                 </div>
                 <input type="text" id="review-input-toyota-camry" class="review-input" placeholder="Leave your review">
                 <button class="review-button" onclick="addReview('toyota-camry')">Add Review</button>
-                <button class="edit-button" onclick="editReview('toyota-camry')">Edit</button>
-                <button class="delete-button" onclick="deleteReview('toyota-camry')">Delete</button>
             </div>
-
             <div class="car" id="car-porsche-911">
                 <h2>Porsche 911</h2>
                 <p><strong>Manufacturer:</strong> Porsche AG, Germany</p>
@@ -163,8 +144,6 @@
                 </div>
                 <input type="text" id="review-input-porsche-911" class="review-input" placeholder="Leave your review">
                 <button class="review-button" onclick="addReview('porsche-911')">Add Review</button>
-                <button class="edit-button" onclick="editReview('porsche-911')">Edit</button>
-                <button class="delete-button" onclick="deleteReview('porsche-911')">Delete</button>
             </div>
             <div class="car" id="car-honda-civic">
                 <h2>Honda Civic</h2>
@@ -178,10 +157,7 @@
                 </div>
                 <input type="text" id="review-input-honda-civic" class="review-input" placeholder="Leave your review">
                 <button class="review-button" onclick="addReview('honda-civic')">Add Review</button>
-                <button class="edit-button" onclick="editReview('honda-civic')">Edit</button>
-                <button class="delete-button" onclick="deleteReview('honda-civic')">Delete</button>
             </div>
-
             <div class="car" id="car-ford-mustang">
                 <h2>Ford Mustang</h2>
                 <p><strong>Manufacturer:</strong> Ford Motor Company, USA</p>
@@ -194,15 +170,12 @@
                 </div>
                 <input type="text" id="review-input-ford-mustang" class="review-input" placeholder="Leave your review">
                 <button class="review-button" onclick="addReview('ford-mustang')">Add Review</button>
-                <button class="edit-button" onclick="editReview('ford-mustang')">Edit</button>
-                <button class="delete-button" onclick="deleteReview('ford-mustang')">Delete</button>
             </div>
-
             <div class="car" id="car-bmw-3-series">
                 <h2>BMW 3 Series</h2>
                 <p><strong>Manufacturer:</strong> BMW AG, Germany</p>
                 <p><strong>Power:</strong> From 255 hp to 382 hp depending on model</p>
-                <p><strong>Price:</strong> Approximately $40,000 to $60,000 USD</p>
+                <p><strong>Price:</strong> Approximately $41,000 to $60,000 USD</p>
                 <p><strong>Features:</strong> Luxury compact sedan with excellent driving dynamics, high-quality interior, and advanced technology. Offers a balance of performance and comfort.</p>
                 <img src="../img/bmw_3_series.jpg" alt="BMW 3 Series">
                 <div id="reviews-bmw-3-series">
@@ -210,10 +183,7 @@
                 </div>
                 <input type="text" id="review-input-bmw-3-series" class="review-input" placeholder="Leave your review">
                 <button class="review-button" onclick="addReview('bmw-3-series')">Add Review</button>
-                <button class="edit-button" onclick="editReview('bmw-3-series')">Edit</button>
-                <button class="delete-button" onclick="deleteReview('bmw-3-series')">Delete</button>
             </div>
-
             <div class="car" id="car-audi-a4">
                 <h2>Audi A4</h2>
                 <p><strong>Manufacturer:</strong> Audi AG, Germany</p>
@@ -226,8 +196,6 @@
                 </div>
                 <input type="text" id="review-input-audi-a4" class="review-input" placeholder="Leave your review">
                 <button class="review-button" onclick="addReview('audi-a4')">Add Review</button>
-                <button class="edit-button" onclick="editReview('audi-a4')">Edit</button>
-                <button class="delete-button" onclick="deleteReview('audi-a4')">Delete</button>
             </div>
             <div class="car" id="car-mercedes-benz-c-class">
                 <h2>Mercedes-Benz C-Class</h2>
@@ -241,12 +209,8 @@
                 </div>
                 <input type="text" id="review-input-mercedes-benz-c-class" class="review-input" placeholder="Leave your review">
                 <button class="review-button" onclick="addReview('mercedes-benz-c-class')">Add Review</button>
-                <button class="edit-button" onclick="editReview('mercedes-benz-c-class')">Edit</button>
-                <button class="delete-button" onclick="deleteReview('mercedes-benz-c-class')">Delete</button>
             </div>
-            <!-- Repeat similar structure for other cars -->
         </section>
-
         <div class="button-container">
             <a href="/Home/Index" class="return-button">Home</a>
         </div>
@@ -333,7 +297,7 @@
             var cancelButton = document.createElement('button');
             cancelButton.className = 'cancel-button';
             cancelButton.textContent = 'Cancel';
-            cancelButton.onclick = function () { cancelEdit(reviewDiv, oldReviewText); };
+            cancelButton.onclick = function () { cancelEdit(carId, reviewDiv, oldReviewText); };
 
             reviewDiv.innerHTML = '';
             reviewDiv.appendChild(input);
@@ -370,7 +334,7 @@
         }
 
         // Function to cancel edit
-        function cancelEdit(reviewDiv, reviewText) {
+        function cancelEdit(carId, reviewDiv, reviewText) {
             reviewDiv.textContent = reviewText;
 
             var editButton = document.createElement('button');
@@ -407,6 +371,5 @@
             loadReviews();
         });
     </script>
-
 </body>
 </html>
