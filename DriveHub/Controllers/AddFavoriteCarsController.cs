@@ -29,7 +29,7 @@ namespace DriveHub.Controllers
             {
                 var favoriteCar = new FavoriteCar
                 {
-                    FavoriteID = model.FavoriteID,
+                   
                     UserID = model.UserID,
                     CarID = model.CarID,
                     DateAdded = model.DateAdded

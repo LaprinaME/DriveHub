@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
 using DriveHub.Models;
 using DriveHub.ViewModels;
 using DriveHub.DataContext;
+using System.Data.SqlClient;
 
 namespace DriveHub.Controllers
 {
@@ -31,7 +33,7 @@ namespace DriveHub.Controllers
             {
                 var car = new Car
                 {
-                    CarID = viewModel.CarID,
+                    
                     Make = viewModel.Make,
                     Model = viewModel.Model,
                     Year = viewModel.Year,
@@ -41,10 +43,22 @@ namespace DriveHub.Controllers
                     DateAdded = DateTime.Now
                 };
 
-                _context.Cars.Add(car);
-                await _context.SaveChangesAsync();
+                try
+                {
+                    _context.Cars.Add(car);
+                    await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateException ex) when (ex.InnerException is SqlException sqlEx && sqlEx.Number == 2627)
+                {
+                    // Проверка, что исключение связано с нарушением уникальности
+                    ModelState.AddModelError(string.Empty, "Автомобиль с таким ID уже существует.");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, "Неизвестная ошибка. Попробуйте еще раз.");
+                }
             }
 
             return View("Index", viewModel);

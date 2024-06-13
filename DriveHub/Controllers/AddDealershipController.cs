@@ -29,7 +29,7 @@ namespace DriveHub.Controllers
             {
                 var dealership = new Dealership
                 {
-                    DealershipID = model.DealershipID,
+                   
                     DealershipName = model.DealershipName,
                     Address = model.Address,
                     Phone = model.Phone

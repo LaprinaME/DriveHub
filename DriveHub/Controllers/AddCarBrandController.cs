@@ -29,7 +29,6 @@ namespace DriveHub.Controllers
             {
                 var brand = new CarBrand
                 {
-                    BrandID = model.BrandID,
                     BrandName = model.BrandName,
                     Country = model.Country
                 };

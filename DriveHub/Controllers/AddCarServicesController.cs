@@ -29,7 +29,7 @@ namespace DriveHub.Controllers
             {
                 var service = new CarService
                 {
-                    ServiceID = model.ServiceID,
+                    
                     ServiceName = model.ServiceName,
                     Description = model.Description,
                     Price = model.Price

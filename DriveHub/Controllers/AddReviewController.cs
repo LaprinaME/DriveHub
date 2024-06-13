@@ -29,7 +29,7 @@ namespace DriveHub.Controllers
             {
                 var review = new Review
                 {
-                    ReviewID = model.ReviewID,
+                    
                     UserID = model.UserID,
                     CarID = model.CarID,
                     Rating = model.Rating,

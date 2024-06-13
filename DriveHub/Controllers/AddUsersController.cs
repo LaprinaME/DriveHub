@@ -29,7 +29,7 @@ namespace DriveHub.Controllers
             {
                 var user = new User
                 {
-                    UserID = model.UserID,
+                    
                     Username = model.Username,
                     Password = model.Password,
                     RoleID = model.RoleID
